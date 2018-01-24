@@ -10,7 +10,8 @@ connection = engine.connect()
 @app.route('/')
 def index():
     result = connection.execute('SELECT Name from sys.Databases')
-    return 'Hello '+str(result)
+    res = str([i for i in result])
+    return 'Hello '+str(res)
 
 
 if __name__ == '__main__':
